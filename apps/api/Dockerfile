@@ -8,7 +8,7 @@ COPY packages/shared/package.json packages/shared/package.json
 RUN corepack enable
 
 FROM base AS deps
-RUN pnpm install --filter @family-safety/api... --no-frozen-lockfile
+RUN pnpm install --filter @family-safety/shared --filter @family-safety/api... --no-frozen-lockfile
 
 FROM deps AS build
 COPY apps/api apps/api
