@@ -1,0 +1,19 @@
+{
+  "name": "family-safety-platform",
+  "private": true,
+  "version": "0.1.0",
+  "packageManager": "pnpm@10.0.0",
+  "scripts": {
+    "dev:api": "pnpm --filter @family-safety/api dev",
+    "dev:web": "pnpm --filter @family-safety/web dev",
+    "dev:web:host": "pnpm --filter @family-safety/web dev -- --hostname 0.0.0.0 --port 3000",
+    "dev:mobile": "pnpm --filter @family-safety/mobile start",
+    "build": "pnpm -r build",
+    "lint": "pnpm -r lint",
+    "typecheck": "pnpm -r typecheck"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
+}

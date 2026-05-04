@@ -1,0 +1,139 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  phone     String?
+  role      String
+  createdAt DateTime @default(now())
+  children  Child[]  @relation("ParentChildren")
+  settings  Setting?
+  guardians Guardian[]
+}
+
+model Child {
+  id              String           @id @default(cuid())
+  parentId        String
+  name            String
+  age             Int
+  grade           String
+  avatarLabel     String
+  deviceId        String           @unique
+  lastSeenAt      DateTime?
+  parent          User             @relation("ParentChildren", fields: [parentId], references: [id])
+  deviceStatus    DeviceStatus?
+  locations       Location[]
+  alerts          Alert[]
+  screenTimeRules ScreenTimeRule[]
+  browsingRule    BrowsingRule?
+  browsingLogs    BrowsingLog[]
+  linkInvites     DeviceLinkInvite[]
+}
+
+model Location {
+  id         String   @id @default(cuid())
+  childId    String
+  latitude   Float
+  longitude  Float
+  speedMph   Float
+  accuracyMeters Float
+  placeLabel String
+  recordedAt DateTime @default(now())
+  child      Child    @relation(fields: [childId], references: [id])
+
+  @@index([childId, recordedAt(sort: Desc)])
+}
+
+model Alert {
+  id        String   @id @default(cuid())
+  childId   String
+  type      String
+  message   String
+  severity  String
+  acknowledged Boolean @default(false)
+  createdAt DateTime @default(now())
+  child     Child    @relation(fields: [childId], references: [id])
+
+  @@index([childId, createdAt(sort: Desc)])
+}
+
+model ScreenTimeRule {
+  id                String  @id @default(cuid())
+  childId           String
+  name              String
+  schedule          String
+  dailyLimitMinutes Int
+  allowedApps       Json
+  blockedApps       Json
+  enabled           Boolean @default(true)
+  child             Child   @relation(fields: [childId], references: [id])
+}
+
+model DeviceStatus {
+  id            String  @id @default(cuid())
+  childId        String  @unique
+  batteryLevel   Int     @default(100)
+  isOnline       Boolean @default(false)
+  network        String
+  osName         String
+  osVersion      String
+  appVersion     String
+  lowPowerMode   Boolean @default(false)
+  child          Child   @relation(fields: [childId], references: [id])
+}
+
+model BrowsingRule {
+  id                String @id @default(cuid())
+  childId           String @unique
+  blockedDomains    Json
+  blockedCategories Json
+  safeSearchEnabled Boolean @default(true)
+  child             Child   @relation(fields: [childId], references: [id])
+}
+
+model BrowsingLog {
+  id         String   @id @default(cuid())
+  childId     String
+  domain      String
+  category    String
+  blocked     Boolean
+  recordedAt  DateTime @default(now())
+  child       Child     @relation(fields: [childId], references: [id])
+
+  @@index([childId, recordedAt(sort: Desc)])
+}
+
+model DeviceLinkInvite {
+  id         String   @id @default(cuid())
+  childId     String
+  code        String
+  expiresAt   DateTime
+  child       Child     @relation(fields: [childId], references: [id])
+}
+
+model Guardian {
+  id           String @id @default(cuid())
+  userId       String
+  name         String
+  email        String
+  relationship String
+  user         User   @relation(fields: [userId], references: [id])
+}
+
+model Setting {
+  id                  String  @id @default(cuid())
+  userId              String  @unique
+  notificationsEnabled Boolean @default(true)
+  weeklyReportsEnabled Boolean @default(true)
+  locationHistoryDays Int     @default(30)
+  privacyMode         String  @default("balanced")
+  user                User    @relation(fields: [userId], references: [id])
+}

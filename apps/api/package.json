@@ -1,0 +1,23 @@
+{
+  "name": "@family-safety/api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@family-safety/shared": "workspace:*",
+    "@prisma/client": "^6.8.2",
+    "fastify": "^5.0.0",
+    "@fastify/cors": "^10.0.0"
+  },
+  "devDependencies": {
+    "prisma": "^6.8.2",
+    "tsx": "^4.19.0",
+    "typescript": "^5.8.0"
+  }
+}

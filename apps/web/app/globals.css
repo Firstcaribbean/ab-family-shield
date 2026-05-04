@@ -1,0 +1,587 @@
+:root {
+  --blue: #1f6fff;
+  --blue-deep: #0f54d9;
+  --green: #20b15a;
+  --red: #ef3b3b;
+  --text: #14243b;
+  --muted: #72819a;
+  --line: #dfe8f5;
+  --bg: #eef5ff;
+  --card: #ffffff;
+  --shadow: 0 22px 50px rgba(40, 92, 170, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background:
+    radial-gradient(circle at top left, rgba(31, 111, 255, 0.16), transparent 24%),
+    linear-gradient(180deg, #f8fbff 0%, var(--bg) 100%);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  padding: 18px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.mobileAppPage {
+  min-height: calc(100vh - 36px);
+  display: grid;
+  place-items: center;
+}
+
+.mobileAppFrame {
+  width: min(100%, 430px);
+  min-height: 860px;
+  border-radius: 38px;
+  border: 2px solid #cfe0ff;
+  background: linear-gradient(180deg, #ffffff, #f7fbff);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+}
+
+.mobileStatusBar,
+.mobileHeader,
+.dashboardBanner,
+.childCardMobile,
+.featureActionGrid,
+.sectionLine,
+.locationBottomCard,
+.mobileListRow,
+.ruleRow,
+.reportTopCard,
+.reportMetricCard,
+.settingsRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.mobileStatusBar {
+  padding: 14px 18px 10px;
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.mobileHeader {
+  padding: 8px 18px 14px;
+}
+
+.mobileHeader h1 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.mobileHeaderSide {
+  min-width: 62px;
+}
+
+.iconButton,
+.headerLink {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.headerLink {
+  color: var(--blue);
+}
+
+.mobileScreen {
+  padding: 14px 18px 18px;
+  display: grid;
+  gap: 14px;
+}
+
+.mobileTabBar {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  padding: 12px 12px 16px;
+  border-top: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.94);
+}
+
+.tabItem {
+  text-align: center;
+  padding: 10px 4px;
+  border-radius: 14px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.activeTab {
+  color: var(--blue);
+  background: #edf4ff;
+}
+
+.splashScreen {
+  height: 100%;
+  border-radius: 28px;
+  padding: 26px 20px;
+  display: grid;
+  justify-items: center;
+  gap: 16px;
+  background: linear-gradient(180deg, var(--blue) 0%, var(--blue-deep) 100%);
+  color: white;
+}
+
+.heroShield {
+  width: 142px;
+  height: 142px;
+  margin-top: 28px;
+  border-radius: 34px;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.16);
+  border: 2px solid rgba(255, 255, 255, 0.28);
+  font-size: 2.3rem;
+  font-weight: 800;
+}
+
+.splashScreen h2 {
+  margin: 0;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.mobileActionStack {
+  width: 100%;
+  display: grid;
+  gap: 12px;
+  margin-top: auto;
+}
+
+.primaryMobileButton,
+.secondaryMobileButton,
+.outlineMobileButton,
+.softWideButton,
+.miniBlueButton,
+.logoutWideButton {
+  width: 100%;
+  border: 0;
+  border-radius: 16px;
+  padding: 15px 18px;
+  font: inherit;
+  font-weight: 700;
+  text-align: center;
+}
+
+.buttonReset {
+  border: 0;
+}
+
+.primaryMobileButton,
+.miniBlueButton {
+  background: linear-gradient(180deg, #2f86ff, var(--blue));
+  color: white;
+}
+
+.secondaryMobileButton {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: white;
+}
+
+.outlineMobileButton {
+  background: white;
+  border: 1px dashed #8fb4ef;
+  color: var(--blue);
+}
+
+.authScreen,
+.addChildScreen,
+.featureScreen,
+.locationScreen,
+.dashboardScreen,
+.sosScreen {
+  display: grid;
+  gap: 14px;
+}
+
+.mobileForm {
+  display: grid;
+  gap: 12px;
+}
+
+.mobileTextInput {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 14px 15px;
+  background: white;
+  color: var(--text);
+  font: inherit;
+}
+
+.authBrand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.brandBadge,
+.profileAvatarSmall,
+.profileAvatarLarge {
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  color: white;
+  background: linear-gradient(180deg, #2f86ff, var(--blue));
+}
+
+.brandBadge,
+.profileAvatarSmall {
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+}
+
+.profileAvatarLarge {
+  width: 94px;
+  height: 94px;
+  border-radius: 50%;
+  margin: 8px auto;
+}
+
+.altAvatar {
+  background: linear-gradient(180deg, #ffd7a8, #f2a85f);
+}
+
+.mockInput,
+.socialButton,
+.childCardMobile,
+.locationCardTop,
+.locationBottomCard,
+.protectionBanner,
+.mobileListRow,
+.ruleRow,
+.reportTopCard,
+.reportMetricCard,
+.settingsRow {
+  border-radius: 18px;
+  padding: 14px 15px;
+  background: var(--card);
+  border: 1px solid var(--line);
+}
+
+.socialButton {
+  width: 100%;
+  font: inherit;
+  color: var(--text);
+  text-align: center;
+}
+
+button:disabled {
+  opacity: 0.68;
+  cursor: not-allowed;
+}
+
+.clickableButton {
+  cursor: pointer;
+}
+
+.authModeSwitch {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.modeChip {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 12px 14px;
+  background: white;
+  color: var(--muted);
+  font: inherit;
+  font-weight: 700;
+}
+
+.activeChip {
+  border-color: rgba(31, 111, 255, 0.25);
+  background: #edf4ff;
+  color: var(--blue);
+}
+
+.dividerText,
+.smallText,
+.smallMuted {
+  color: var(--muted);
+  font-size: 0.84rem;
+}
+
+.dividerText,
+.centerText {
+  text-align: center;
+}
+
+.authFooter {
+  color: var(--muted);
+  font-size: 0.88rem;
+  text-align: center;
+}
+
+.authFooter a {
+  color: var(--blue);
+  font-weight: 700;
+}
+
+.inviteCard {
+  display: grid;
+  gap: 10px;
+  border-radius: 18px;
+  padding: 14px 15px;
+  background: var(--card);
+  border: 1px solid var(--line);
+}
+
+.inviteLinkText {
+  color: var(--blue);
+  font-size: 0.82rem;
+  word-break: break-all;
+}
+
+.dashboardBanner {
+  margin: -14px -18px 0;
+  padding: 20px 18px 16px;
+  background: linear-gradient(180deg, var(--blue) 0%, #1670f6 100%);
+  color: white;
+}
+
+.brightText {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.childCardInfo {
+  flex: 1;
+}
+
+.greenText {
+  color: var(--green);
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.featureActionGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.miniFeatureCard {
+  border-radius: 18px;
+  padding: 16px 8px;
+  background: white;
+  border: 1px solid var(--line);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.paddedFeatureCard {
+  padding: 8px;
+}
+
+.paddedFeatureCard .miniBlueButton {
+  padding: 12px 8px;
+  border-radius: 14px;
+}
+
+.sectionLine a {
+  color: var(--blue);
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.mobileList {
+  display: grid;
+  gap: 10px;
+}
+
+.mobileListRow {
+  align-items: start;
+  font-size: 0.84rem;
+}
+
+.mapSurface {
+  position: relative;
+  height: 360px;
+  border-radius: 24px;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, transparent 45%, rgba(73, 145, 255, 0.18) 48%, rgba(73, 145, 255, 0.18) 54%, transparent 57%),
+    repeating-linear-gradient(0deg, rgba(0,0,0,0.035) 0 1px, transparent 1px 38px),
+    repeating-linear-gradient(90deg, rgba(0,0,0,0.035) 0 1px, transparent 1px 38px),
+    #edf4fb;
+}
+
+.trackingMapBlock {
+  display: grid;
+  gap: 10px;
+}
+
+.leafletMap {
+  height: 360px;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #edf4fb;
+}
+
+.trackingStatusCard {
+  border-radius: 18px;
+  padding: 14px 15px;
+  background: var(--card);
+  border: 1px solid var(--line);
+}
+
+.mapZone {
+  position: absolute;
+  padding: 24px 18px;
+  border-radius: 24px;
+  background: rgba(68, 196, 111, 0.18);
+  color: #1d8e46;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.leftZone {
+  left: 18px;
+  bottom: 22px;
+}
+
+.rightZone {
+  right: 18px;
+  top: 26px;
+}
+
+.mapCenterPin {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  transform: translate(-50%, -50%);
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: rgba(31, 111, 255, 0.22);
+  border: 14px solid rgba(31, 111, 255, 0.12);
+  color: var(--blue);
+  font-weight: 800;
+}
+
+.protectionBanner {
+  display: grid;
+  gap: 4px;
+  background: linear-gradient(180deg, #33c46e, #1fa65b);
+  color: white;
+  border: 0;
+}
+
+.sectionLabel {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.ruleStack,
+.settingsStack {
+  display: grid;
+  gap: 12px;
+}
+
+.toggleMock {
+  width: 44px;
+  height: 24px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #35d56f, #1da652);
+}
+
+.scoreCircle {
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  border: 8px solid var(--green);
+  color: #178844;
+  font-weight: 800;
+}
+
+.chartPlaceholder {
+  height: 62px;
+  border-radius: 18px;
+  background:
+    linear-gradient(180deg, rgba(31, 111, 255, 0.18), rgba(31, 111, 255, 0.04)),
+    linear-gradient(90deg, #8fb8ff 8%, transparent 8% 12%, #6da3ff 12% 16%, transparent 16% 20%, #4a8cff 20% 24%, transparent 24%);
+}
+
+.greenChartPlaceholder {
+  background:
+    linear-gradient(180deg, rgba(32, 177, 90, 0.2), rgba(32, 177, 90, 0.04)),
+    linear-gradient(90deg, #98e1b1 8%, transparent 8% 12%, #68ce8d 12% 16%, transparent 16% 20%, #31b868 20% 24%, transparent 24%);
+}
+
+.sosScreen {
+  justify-items: center;
+  align-content: start;
+}
+
+.sosPulseButton {
+  width: 184px;
+  height: 184px;
+  margin-top: 28px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: white;
+  font-size: 2.1rem;
+  font-weight: 900;
+  background: radial-gradient(circle, #ff6f6f 0%, #ef3b3b 56%, #d61f1f 100%);
+  box-shadow: 0 0 0 22px rgba(239, 59, 59, 0.12), 0 0 0 46px rgba(239, 59, 59, 0.06);
+}
+
+.softWideButton {
+  background: #edf4ff;
+  color: var(--blue);
+}
+
+.logoutWideButton {
+  background: #fff3f3;
+  color: #d82c2c;
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 8px;
+  }
+
+  .mobileAppPage {
+    min-height: calc(100vh - 16px);
+  }
+
+  .mobileAppFrame {
+    width: 100%;
+    min-height: calc(100vh - 16px);
+    border-radius: 26px;
+  }
+
+  .featureActionGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
