@@ -1,0 +1,17 @@
+.git
+.gitignore
+.vercel
+.next
+node_modules
+**/node_modules
+apps/web/.next
+apps/web/.vercel
+apps/mobile
+apps/*/dist
+packages/*/dist
+*.log
+npm-debug.log*
+pnpm-debug.log*
+coverage
+tmp
+temp
